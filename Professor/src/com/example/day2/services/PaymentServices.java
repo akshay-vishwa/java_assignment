@@ -4,7 +4,7 @@ import com.example.day2.Professor;
 
 public class PaymentServices {
 
-	protected double calculateSalary(Professor prof) {
+	public double calculateSalary(Professor prof) {
 		
 		double salary =50000.00;
 		
