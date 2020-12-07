@@ -29,7 +29,7 @@ public class Application {
 		int number=Integer.parseInt(args[0]);
 		int balance=Integer.parseInt(args[2]);
 		
-		MobileDetail kart=new MobileDetail(args[1],number,balance);
+		MobileDetail kart1=new MobileDetail(args[1],number,balance);
 		
 
 
