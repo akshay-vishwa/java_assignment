@@ -26,6 +26,10 @@ public class Application {
 		System.out.println(adarsh.getUserName());
 		
 		System.out.println("Total users is:"+MobileDetail.count);
+		int number=Integer.parseInt(args[0]);
+		int balance=Integer.parseInt(args[2]);
+		
+		MobileDetail kart=new MobileDetail(args[1],number,balance);
 		
 
 
