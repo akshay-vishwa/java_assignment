@@ -30,7 +30,8 @@ public class Application {
 			System.out.println("enter type:");
 			type=sc.next();
 			Discount discount = new Discount();
-			System.out.println(discount.discount(books));				System.out.println(discount.discount2(books,type));
+			System.out.println(discount.discount(books));				
+			System.out.println(discount.discount2(books,type));
 			}
 		else {
 			Book books =new Book(200,"The END","Alexandra Bracken",300.00);
