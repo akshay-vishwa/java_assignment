@@ -1,5 +1,7 @@
 package com.example.demo.apps;
 
+import java.util.Scanner;
+
 import com.example.day2.Professor;
 import com.example.day2.services.PaymentServices;
 
@@ -11,7 +13,11 @@ public class FlowControlApplication {
 		
 		PaymentServices service =new PaymentServices();
 		
-		double salary = service.calculateSalary("phd");
+		Scanner sc =new Scanner(System.in);
+		System.out.println("Enter qualification");
+		String qual=sc.next();
+		
+		double salary = service.calculateSalary(qual);
 		
 		System.out.println("Phd salary :="+ salary);
 		
