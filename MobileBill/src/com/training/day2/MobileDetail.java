@@ -6,9 +6,10 @@ public class MobileDetail {
 	public int userNumber;
 	public int balance;
 	public static String serviceProvider;
+	public static int count=0;
 	
 	public MobileDetail() {
-		
+		totalUser();
 	}
 	
 	public MobileDetail(String userName, int userNumber, int balance) {
@@ -16,6 +17,7 @@ public class MobileDetail {
 		this.userName = userName;
 		this.userNumber = userNumber;
 		this.balance = balance;
+		totalUser();
 	}
 
 	
@@ -58,7 +60,9 @@ public class MobileDetail {
 		return serviceProvider;
 	}
 	
-	
+	public static void totalUser() {
+		count++;
+	}
 	
 	
 	

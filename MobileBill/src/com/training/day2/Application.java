@@ -5,6 +5,7 @@ public class Application {
 	public static void main(String[] args) {
 	
 		MobileDetail ravi=new MobileDetail();
+		
 		System.out.println(ravi.getBalance());
 		System.out.println(ravi.getUserNumber());
 		System.out.println(ravi.getUserName());
@@ -12,16 +13,19 @@ public class Application {
 		
 		MobileDetail karthik=new MobileDetail("karthik",9232,11);
 		MobileDetail.setServiceProvider("jio");
+		
 		System.out.println(karthik.getBalance());
 		System.out.println(karthik.getUserNumber());
 		System.out.println(karthik.getUserName());
 		System.out.println(MobileDetail.getServiceProvider());
 		
 		MobileDetail adarsh=new MobileDetail("adarsh",9232);
+		
 		System.out.println(adarsh.getBalance());
 		System.out.println(adarsh.getUserNumber());
 		System.out.println(adarsh.getUserName());
 		
+		System.out.println("Total users is:"+MobileDetail.count);
 		
 
 
