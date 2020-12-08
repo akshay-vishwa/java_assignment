@@ -21,7 +21,7 @@ public class Application {
 		double intrest =ravi.findRateOfInterest();
 		System.out.println("Your intrest is:"+intrest);
 		
-		
+		sc.close();
 		
 
 	}
