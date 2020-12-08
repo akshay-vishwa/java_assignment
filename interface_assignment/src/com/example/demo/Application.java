@@ -15,11 +15,11 @@ public class Application {
 		Service ckeck =new Service();
 		ckeck.PrintSalary(ravi);
 		
-		SoftwareEnginner rahul=new SoftwareEnginner("rahul", 212, "java", 10000);
+		CivilEnginner rahul=new CivilEnginner("rahul", 212, "java", 10000);
 		rahul.calculate();
 		rahul.display();
 		
-		SoftwareEnginner raju=new SoftwareEnginner("raju", 212, "c++", 10000);
+		CivilEnginner raju=new CivilEnginner("raju", 212, "c++", 10000);
 		raju.calculate();
 		raju.display();
 		
