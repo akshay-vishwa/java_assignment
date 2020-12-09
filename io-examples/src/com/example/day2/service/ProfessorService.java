@@ -1,6 +1,8 @@
 package com.example.day2.service;
 
 import java.io.*;
+import java.util.Arrays;
+
 import com.example.day2.Professor;
 
 public class ProfessorService {
@@ -55,7 +57,7 @@ public class ProfessorService {
 	
 	
 		public Professor[] readFromTextFIle(File file) {
-			Professor[] list=new Professor[10];
+			Professor[] list=new Professor[4];
 			
 			String line=null;
 			
@@ -63,10 +65,12 @@ public class ProfessorService {
 				
 				int i=0;
 				while((line=reader.readLine())!=null) {
+					
 					String[] values=line.split(",");
 					Professor prof =new Professor(Integer.parseInt(values[0]),values[1],values[2],values[3]);
-					
 					list[i]=prof;
+					if(i>=3)
+						list=Arrays.copyOf(list,list.length+1);
 					i++;
 				}
 			}catch(IOException e) {

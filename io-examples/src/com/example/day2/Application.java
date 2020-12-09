@@ -44,9 +44,9 @@ public class Application {
 
 		if(k==4) {
 			Professor[] list =service.readFromTextFIle(fileTxt);
-			System.out.println(list[0]);
-			System.out.println(list[1]);
-			System.out.println(list[2]);
+			for(Professor each:list) {
+				System.out.println(each);
+			}
 		}
 	}
 
