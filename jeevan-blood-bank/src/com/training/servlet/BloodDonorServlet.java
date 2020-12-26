@@ -15,9 +15,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.assignment.services.DonorService;
-
+import com.assignment.services.LoginService;
 import com.training.model.BloodDonor;
 import com.trainingutils.DbConnectionUtil;
 
@@ -34,12 +35,14 @@ public class BloodDonorServlet extends HttpServlet {
 	
 	private Connection con;
 	DonorService bloodD ;
+	LoginService login;
 	
     public BloodDonorServlet() {
         super();
         bloodD =new DonorService();
         con=DbConnectionUtil.getMySqlConnection();
-        
+        login=new LoginService();
+        System.out.println(con);
     }
 
 	/**
@@ -60,25 +63,45 @@ public class BloodDonorServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
 		
-		String name=request.getParameter("name");
-		int age=Integer.parseInt(request.getParameter("age"));
-		String gender=request.getParameter("gender");
-		String bloodgroup=request.getParameter("bloodgroup");
-		int phonenumber=Integer.parseInt(request.getParameter("phonenumber"));
-		String email=request.getParameter("email");
-		String date=request.getParameter("dateofbirth");
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-		LocalDate dob= LocalDate.parse(date,formatter);
+		if (request.getParameter("login")!= null) {
+			
+			int loginId = Integer.parseInt(request.getParameter("loginId"));
+			String password = request.getParameter("password");
+			boolean check = login.checkPassword(loginId, password);
+			session.setAttribute("valid", check);
+			RequestDispatcher dispatcher1 = request.getRequestDispatcher("Welcome.jsp");
+			dispatcher1.forward(request, response);
+			
+		}
 		
-		BloodDonor donor=new BloodDonor(name,age,gender,bloodgroup,phonenumber,email,dob);
-		
-		int row=bloodD.addDonor(donor);
-		request.setAttribute("row",row);
-		RequestDispatcher dispatcher1 =request.getRequestDispatcher("index.jsp");
-    	dispatcher1.forward(request, response);
+		if (request.getParameter("add")!= null &&  (boolean)session.getAttribute("valid") ) {
+			String name = request.getParameter("name");
+			int age = Integer.parseInt(request.getParameter("age"));
+			String gender = request.getParameter("gender");
+			String bloodgroup = request.getParameter("bloodgroup");
+			int phonenumber = Integer.parseInt(request.getParameter("phonenumber"));
+			String email = request.getParameter("email");
+			String date = request.getParameter("dateofbirth");
+			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+			LocalDate dob = LocalDate.parse(date, formatter);
+			BloodDonor donor = new BloodDonor(name, age, gender, bloodgroup, phonenumber, email, dob);
+			int row = bloodD.addDonor(donor);
+			request.setAttribute("row", row);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("Welcome.jsp");
+			dispatcher.forward(request, response);
+		}
+		if(request.getParameter("add")!= null &&  !(boolean)session.getAttribute("valid")) {
+			RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+			dispatcher.forward(request, response);
+		}
 	}
 
+	public void add() {
+		
+	}
+	
 	@Override
 	public void destroy() {
 

@@ -26,6 +26,11 @@ th {
 </style>
 </head>
 <body>
+
+<header>
+<jsp:include page="menu.jsp"/>
+</header>
+
 <table>
    <tr>
      <th>Name</th>

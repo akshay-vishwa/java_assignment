@@ -8,6 +8,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 </head>
 <body>
+
+<header>
+<jsp:include page="menu.jsp" />
+</header>
+
 <form action="donor" method="post">
 
     <label for="">Name</label><br>
@@ -33,9 +38,8 @@
 	<label for="">dateofbirth</label><br>
 	<input type="date" name="dateofbirth"/><br>
 	
-	<input type="submit" value="ADD" />
-	<!-- add c:if here -->
-    <p>rows added is:</p><c:out value="${row}"/>
+	<input type="submit" value="ADD" name="add"/>
+	
 </form>
 </body>
 </html>

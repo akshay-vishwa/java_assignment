@@ -7,7 +7,20 @@
 <title>Insert title here</title>
 </head>
 <body>
-<p>click here to add donor</p><a href="addDonor.jsp" >Add donor</a>
-<p>click here to view donor</p><a href="donor" >View Donor</a>
+<header>
+<jsp:include page="menu.jsp" />
+</header>
+
+
+   <div >
+      <form action = "donor" method="post">
+         <label for="">Login id</label><br>
+	     <input type="text" name="loginId"/><br>
+	     <label for="">Password</label><br>
+	     <input type="text" name="password"/><br>
+	     <input type="submit" value="Login" name="login"/>
+      </form>
+   </div>
+
 </body>
 </html>
