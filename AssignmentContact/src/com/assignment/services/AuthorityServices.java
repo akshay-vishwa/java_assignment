@@ -64,7 +64,7 @@ public class AuthorityServices {
 					
 				} else if (ans == 4) {
 					
-					service.distpaySqlData();
+					service.displaySqlData();
 					
 				}else if(ans==5) {
 					
@@ -150,7 +150,7 @@ public class AuthorityServices {
 	    
 	    
 	//Displays all the details of the contact table in the database
-		public void distpaySqlData() {
+		public void displaySqlData() {
 			
 			List<ContactDetails> list=new ArrayList<>();
 			
