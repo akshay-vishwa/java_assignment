@@ -6,7 +6,7 @@ import com.assignment.model.ContactDetails;
 
 public class UserService {
 
-	public static UserService service =new UserService();
+	
 	UserSqlService sqlService;
     Scanner sc;
     boolean flag=true;
@@ -34,11 +34,11 @@ public class UserService {
 			flag=true;
 			if (ans == 1) {
 				
-				service.birthday();
+				birthday();
 				
 			} else if (ans == 2) {
 				
-				service.group();
+				group();
 				
 			} else if (ans == 3) {
 				
@@ -50,7 +50,7 @@ public class UserService {
 				
 			}else if(ans==5) {
 				
-				service.displayPerticular();
+				displayPerticular();
 				
 			}else if(ans==6) {
 				

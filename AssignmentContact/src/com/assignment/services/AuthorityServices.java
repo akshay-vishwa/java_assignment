@@ -11,7 +11,7 @@ import com.assignment.model.ContactDetails;
 
 public class AuthorityServices {
 	
-	    public static AuthorityServices service =new AuthorityServices();;
+	    
 	    SqlServices sqlService;
 	    Scanner sc;
 	    boolean flag=true;
@@ -29,8 +29,8 @@ public class AuthorityServices {
 	    	System.out.println("*********************Welcome Authority********************");
 	    	do {
 	    		flag=true;
-	    	    if(service.passwordCheck()) {
-	    	    	service.valid();
+	    	    if(passwordCheck()) {
+	    	    	valid();
 	    	    	return;
 	    	    }else {
 	    		    System.out.println("Invalid authentication ....would you like to try again(y/n)");
@@ -52,23 +52,23 @@ public class AuthorityServices {
 				back=true;
 				if (ans == 1) {
 					
-					service.add();
+					add();
 					
 				} else if (ans == 2) {
 					
-					service.update();
+					update();
 					
 				} else if (ans == 3) {
 					
-					service.remove();
+					remove();
 					
 				} else if (ans == 4) {
 					
-					service.displaySqlData();
+					displaySqlData();
 					
 				}else if(ans==5) {
 					
-					service.displayPerticular();
+					displayPerticular();
 					
 				}else if(ans==6) {
 					
@@ -92,7 +92,7 @@ public class AuthorityServices {
 				int row = 0;
 				if (sqlService.check(number)) {
 					System.out.println("Entry present:");
-					ContactDetails contact = service.getDetails();
+					ContactDetails contact = getDetails();
 					row = sqlService.update( contact,number);
 					System.out.println("Number of rows updated is:" + row);
 				} else {
@@ -181,7 +181,7 @@ public class AuthorityServices {
 			boolean flag=true;
 			do {
 				flag=true;
-				ContactDetails contact = service.getDetails();
+				ContactDetails contact = getDetails();
 				if(contact==null) {
 					System.out.println("Rows updated is:0");
 				}
