@@ -63,4 +63,19 @@ public class TourService {
     	}
     	return findById(id);
     }
+    
+    //coustom query method-1 using findByxxx
+    public List<Tour> greaterThanDuration(double duration){
+    	return this.repo.findByDurationGreaterThan(duration);
+    }
+    
+    //coustom query method -2 Using Sql with @query,@modifying @Transactional
+    public List<Tour> updateTour(int id ,double revisedCost){
+    	return this.repo.updateTours(id, revisedCost);
+    }
+    
+    //Couston Query method-3 using @Query with JPQL
+    public List<Tour> findByCost(Double cost){
+    	return this.repo.findToursByCost(cost);
+    }
 }
