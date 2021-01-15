@@ -1,11 +1,11 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/lumenTour
+    url: jdbc:mysql://localhost:3306/BloodBank
     username: root
     password: password
   application:
-    name: tour-service
+    name: donor-service
   jpa:
     show-sql: true
     hibernate:
@@ -14,5 +14,11 @@ spring:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
 
 server:
-  port: 3535
+  port: 4545
   
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
