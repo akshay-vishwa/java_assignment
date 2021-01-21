@@ -20,6 +20,9 @@ public interface CampRepository extends JpaRepository<DonorCamp, Integer>{
 	@Query(value="select * from donor_camp where datediff(CURDATE(),endDate)<1;",nativeQuery=true)
 	List<DonorCamp> findActiveCamps();
 	
+	@Query(value="select * from donor_camp where datediff(CURDATE(),endDate)>1;",nativeQuery=true)
+	List<DonorCamp> findEndedCamps();
+	
 	@Query(value="select distinct(city) from donor_camp;",nativeQuery=true)
 	List<String> findCitys();
 	

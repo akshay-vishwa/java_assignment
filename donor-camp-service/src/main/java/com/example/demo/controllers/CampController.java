@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.entity.DonorCamp;
 import com.example.demo.service.CampService;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping(path="/campservice")
 public class CampController {
@@ -57,6 +59,11 @@ public class CampController {
 	@GetMapping(path ="/activecamp")
     public List<DonorCamp> findActiveCamp(){
 		return this.service.findActiveCamp();	
+	}
+	
+	@GetMapping(path ="/endedcamp")
+    public List<DonorCamp> findEndedCamp(){
+		return this.service.findEndedCamp();	
 	}
 	
 	@GetMapping(path ="/distcity")

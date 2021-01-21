@@ -6,7 +6,31 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Blood Donation Online</title>
+<style>
+#donor {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#donor td, #donor th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#donor tr:nth-child(even){background-color: #f2f2f2;}
+
+#donor tr:hover {background-color: #ddd;}
+
+#donor th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #8f3a3a;
+  color: white;
+}
+</style>
 </head>
 <body>
 
@@ -51,16 +75,25 @@
   </div>
 
 </div>
-<table>
+<p style="text-align: center;margin-top: 40px;" > Total donations so far are <br><c:out value="${count}" /></p>
+
+<p style="margin-left: 40px;text-align: center;">Recent donations are..</p>
+<table id="donor" style="width: 900px;font-size: medium; margin-left: 260px;">
 <tr>
-<th>Roll number</th>
-<th>Student name</th>
-<th> marks Scored</th>
-<c:forEach items="${log}" var="eachStudent">
+<th>Sl.no</th>
+<th>Donor ID</th>
+<th> donatedDate</th>
+<th>CampId</th>
+<th>Location</th>
+<th>City</th>
+<c:forEach items="${log}" var="donor">
 <tr>
-<td><c:out value="${eachStudent.id }"/></td>
-<td><c:out value="${eachStudent.slNo }"/></td>
-<td><c:out value="as"/></td>
+<td><c:out value="${donor.slNo }"/></td>
+<td><c:out value="${donor.id }"/></td>
+<td><c:out value="${donor.donatedDate}"/></td>
+<td><c:out value="${donor.campId }"/></td>
+<td><c:out value="${donor.location }"/></td>
+<td><c:out value="${donor.city }"/></td>
 </tr>
 </c:forEach>
 </tr>

@@ -60,18 +60,18 @@ body {
 <body>
 
 <div class="header">
-    <div style="width:1366px;height:250px;background-color:red;background-image:linear-gradient(rgb(184, 12, 12), #a33d3d);"></div>
-    <div style="width:200px;height:250px;position: absolute;left: 84%;top: 0%;opacity: 0.8;background-color:white;background-image:linear-gradient(rgb(235, 165, 165), #a13535b9);"></div>
-    <h1 style="position: absolute;left: 18%;top: 19%;opacity: 0.9;color: #f1f1f1;text-shadow: 2px 2px 4px #000000;font-family:'Times New Roman', Times, serif;">Online Blood Donor</h1>
+    <div style="width:1360px;height:170px;background-color:red;background-image:linear-gradient(rgb(184, 12, 12), #a33d3d);"></div>
+    <div style="width:200px;height:170px;position: absolute;left: 84%;top: 0%;opacity: 0.8;background-color:white;background-image:linear-gradient(rgb(235, 165, 165), #a13535b9);"></div>
+    <h1 style="position: absolute;left: 18%;top: 7%;opacity: 0.9;color: #f1f1f1;text-shadow: 2px 2px 4px #000000;font-family:'Times New Roman', Times, serif;">Online Blood Donor</h1>
 </div>
 
 <div id="navbar">
   
-  <a class="active" href="javascript:void(0)">HOME</a>
+  <a class="active" href="/">HOME</a>
   <a href="javascript:void(0)"><B>ELIGIBILITY</B></a>
   <a href="javascript:void(0)">BLOOD FACTS</a>
   <a href="javascript:void(0)">DONOR REGISTRATION</a>
-  <a href="javascript:void(0)">DONATION CAMPS</a>
+  <a href="/donorcamp/">DONATION CAMPS</a>
   <a href="javascript:void(0)">SEARCH A DONOR</a>
   <a href="javascript:void(0)">LOGIN</a>
 </div>

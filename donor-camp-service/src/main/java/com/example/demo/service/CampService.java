@@ -40,6 +40,10 @@ public class CampService {
 		return this.repo.findActiveCamps();
 	}
 	
+	public List<DonorCamp> findEndedCamp(){
+		return this.repo.findEndedCamps();
+	}
+	
 	//distinct city names
 	public List<String> findCitys(){
 		return this.repo.findCitys();
