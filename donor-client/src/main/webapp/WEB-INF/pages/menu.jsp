@@ -70,9 +70,9 @@ body {
   <a class="active" href="/">HOME</a>
   <a href="javascript:void(0)"><B>ELIGIBILITY</B></a>
   <a href="javascript:void(0)">BLOOD FACTS</a>
-  <a href="javascript:void(0)">DONOR REGISTRATION</a>
+  <a href="/registerDonor/">DONOR REGISTRATION</a>
   <a href="/donorcamp/">DONATION CAMPS</a>
-  <a href="javascript:void(0)">SEARCH A DONOR</a>
+  <a href="/searchDonor/">SEARCH A DONOR</a>
   <a href="javascript:void(0)">LOGIN</a>
 </div>
 

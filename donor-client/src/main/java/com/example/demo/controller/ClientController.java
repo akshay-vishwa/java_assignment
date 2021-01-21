@@ -56,17 +56,32 @@ public class ClientController {
 		return mdlView;		
 	}
 	
-//	@PostMapping(path="/")
-//	public ModelAndView onSubmit(@ModelAttribute("command") int id) {
-//		
-//		//Tour added=this.template.postForObject("http://localhost:8080/api/v1/tours",tour, Tour.class);
-//		
-//		mdlView.setViewName("success");
-//		mdlView.addObject("added",id);
-//		mdlView.addObject("a",12);
-//		
-//		return mdlView;
-//		
-//	}
+	@GetMapping(path="/searchDonor/")
+	public ModelAndView searchDonor() {
+		mdlView.setViewName("searchDonor");
+		
+		return mdlView;		
+	}
+	
+	@GetMapping(path="/registerDonor/")
+	public ModelAndView registerDonor() {
+		
+		mdlView.setViewName("register");
+		mdlView.addObject("command",donor);
+		mdlView.addObject("succuss","");
+		return mdlView;		
+	}
+	
+	@PostMapping(path="/submit")
+	public ModelAndView onSubmit(@ModelAttribute("command") Donor donor) {
+		
+		Donor added=this.template.postForObject("http://localhost:2020/donor-service/donorservice/",donor, Donor.class);
+		System.out.println(added);
+		mdlView.setViewName("register");
+		mdlView.addObject("succuss","succuss");
+		
+		return mdlView;
+		
+	}
 	
 }

@@ -41,7 +41,7 @@
 
    $(document).ready(function(){
 	   $('#button').click(function() {
-		   var s="<table id=\"donor\" style=\"width: 900px;font-size: medium; margin-left: 230px;\"><tr><<th>Sl.no</th><th>campId</th><th>donorId</th></tr>";
+		   var s="<table id=\"donor\" style=\"width: 900px;font-size: medium; margin-left: 230px;\"><tr><th>Sl.no</th><th>campId</th><th>donorId</th></tr>";
 		   var urlval="http://localhost:2020/donor-camp-service/registry/"+$("#id").val();
 			$.ajax({
 				type : 'GET',

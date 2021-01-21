@@ -7,6 +7,38 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Blood Donation Online</title>
+
+<script
+  src="https://code.jquery.com/jquery-1.12.4.min.js"
+  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+  crossorigin="anonymous"></script>
+  
+
+<script type="text/javascript">
+
+   $(document).ready(function(){
+	   $('#button').click(function() {
+		   var s="<table id=\"donor\" style=\"width: 900px;font-size: medium; margin-left: 230px;\"><tr><th>Id</th><th>Name</th><th>DateOfBirth</th><th>BloodGroup</th><th>address</th>"+
+		   "<th>city</th><th>mailId</th><th>phoneNumber</th><th>PlasmaDonor</th></tr>";
+		   var urlval="http://localhost:2020/donor-service/donorservice/eligible";
+			$.ajax({
+				type : 'GET',
+				url :urlval,
+				dataType : 'json',
+				contentType : 'application/json',
+				success : function(result) {
+					$.each(result, function(key,value) {
+                    s+="<tr><td>"+value.id+"</td><td>"+value.name+"</td><td>"+value.dateOfBirth+"</td><td>"+value.bloodGroup+"</td><td>"+value.address+"</td><td>"+value.city+"</td><td>"+value.mailId+"</td><td>"+value.phoneNumber+"</td><td>"+value.plasmaDonor+"</td></tr>";
+					
+					});
+					s+="</table>"
+					$('#display').html(s);
+				}
+			});
+		});
+   });
+   </script>
+
 <style>
 #donor {
   font-family: Arial, Helvetica, sans-serif;
@@ -98,6 +130,13 @@
 </c:forEach>
 </tr>
 </table>
-
+<br>
+<div style="text-align: center;">
+  <p>Click here to find out eligible and willing to donate donors:-</p>
+     <form name="" method="post">
+         <input type="button" value="click" id="button">
+      </form>
+   <div id="display"></div>
+</div>
 </body>
 </html>

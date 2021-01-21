@@ -48,7 +48,7 @@ public class Donor {
 		this.plasmaDonor = plasmaDonor;
 		this.readyToDonate = readyToDonate;
 		this.userId = userId;
-		Password = password;
+		this.Password = password;
 	}
 	
 }

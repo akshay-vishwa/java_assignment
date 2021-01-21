@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +19,7 @@ import com.example.demo.entity.Donor;
 import com.example.demo.services.DonorService;
 import com.google.common.base.Optional;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping(path="/donorservice")
 public class DonorController {
@@ -69,7 +71,7 @@ public class DonorController {
 	}
 	
 	@DeleteMapping(path = "/delete/{id}")
-	public Optional<Donor> removeTour(@PathVariable int id) {	
+	public Optional<Donor> removeDonor(@PathVariable int id) {	
 		Donor resp =this.service.findById(id).orElseThrow( () -> new RuntimeException("ID Not Found"));		
 		 return this.service.removeDonor(resp);
 	}
