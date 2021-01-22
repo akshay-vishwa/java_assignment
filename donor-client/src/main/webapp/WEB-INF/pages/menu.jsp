@@ -73,7 +73,7 @@ body {
   <a href="/registerDonor/">DONOR REGISTRATION</a>
   <a href="/donorcamp/">DONATION CAMPS</a>
   <a href="/searchDonor/">SEARCH A DONOR</a>
-  <a href="javascript:void(0)">LOGIN</a>
+  <a href="/login/null">LOGIN</a>
 </div>
 
 <script>

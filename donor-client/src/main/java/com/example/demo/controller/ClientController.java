@@ -28,7 +28,7 @@ public class ClientController {
 	@Autowired
 	private Donor donor;
 	
-	
+	String userId="null";
 	
 	
 	@GetMapping(path="/")
@@ -63,25 +63,46 @@ public class ClientController {
 		return mdlView;		
 	}
 	
+	@GetMapping(path="/login/{userid}")
+	public ModelAndView login(@PathVariable String userid) {
+
+
+		if(userid.equals("null") && userId.equals("null")) {
+			mdlView.setViewName("login");
+	
+		}else if(!userid.equals("null") && userId.equals("null")) {
+			userId=userid;
+			Donor[] list =template.getForObject("http://localhost:2020/donor-service/donorservice/", Donor[].class);
+			DonorCamp[] active =template.getForObject("http://localhost:2020/donor-camp-service/campservice/activecamp", DonorCamp[].class);
+			for(Donor donorEntry:list) {
+				if(donorEntry.getUserId().equals(userId)) {
+					donor=donorEntry;
+				}
+			}
+			mdlView.addObject("avtive", active);
+			mdlView.addObject("donor", donor);
+			mdlView.setViewName("myaccount");
+		}else {
+			Donor[] list =template.getForObject("http://localhost:2020/donor-service/donorservice/", Donor[].class);
+			DonorCamp[] active =template.getForObject("http://localhost:2020/donor-camp-service/campservice/activecamp", DonorCamp[].class);
+			for(Donor donorEntry:list) {
+				if(donorEntry.getUserId().equals(userId)) {
+					donor=donorEntry;
+				}
+			}
+			mdlView.addObject("active", active);
+			mdlView.addObject("donor", donor);
+			mdlView.setViewName("myaccount");
+		}
+		return mdlView;		
+	}
+	
 	@GetMapping(path="/registerDonor/")
 	public ModelAndView registerDonor() {
 		
 		mdlView.setViewName("register");
-		mdlView.addObject("command",donor);
-		mdlView.addObject("succuss","");
 		return mdlView;		
 	}
 	
-	@PostMapping(path="/submit")
-	public ModelAndView onSubmit(@ModelAttribute("command") Donor donor) {
-		
-		Donor added=this.template.postForObject("http://localhost:2020/donor-service/donorservice/",donor, Donor.class);
-		System.out.println(added);
-		mdlView.setViewName("register");
-		mdlView.addObject("succuss","succuss");
-		
-		return mdlView;
-		
-	}
 	
 }

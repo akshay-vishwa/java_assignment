@@ -35,11 +35,15 @@
 					});
 					  if(flag==0){
 						  $('#validity').html("<i style=\"color:red;font-size:small;\">User Id exists</i>");
+						  $("#submit").css("background-color", "red");
 						  $("#submit").attr("disabled", true);
+						  
 					  }
 					  else{
 						  $('#validity').html("");
+						  $("#submit").css("background-color", " #4CAF50");
 						  $("#submit").attr("disabled", false);
+						  
 					  }
 				}
 			});
@@ -59,8 +63,6 @@
 			  data.readyToDonate=$("#readytodonate").val();
 			  data.userId=$("#userid").val();
 			  data.password=$("#password").val();
-
-			  $('#success').html("New entry succussfully added:");
 			  
 			  $.ajax({
 					type : 'POST',
@@ -70,7 +72,8 @@
 					contentType : 'application/json',
 			        success : function(result){
 
-			        	$('#success').html("New entry succussfully added:");
+			        	$('#check').text("New entry succussfully added:");
+			        	$("#check").fadeOut(10000);
 				        }
 			  });
 		  });
@@ -176,6 +179,6 @@ label{
     <input type="button" value="Submit" id="submit">
   </form>
 </div>
-<div id="succuss" style="text-align: center;"></div>
+<div id="check" style="text-align: center; background-color: green; width:600px"></div>
 </body>
 </html>
